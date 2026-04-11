@@ -5,29 +5,29 @@
 }
 
 :root {
-    --primary-color: #667eea;
-    --primary-light: #8b9ef8;
-    --secondary-color: #764ba2;
+    --primary-color: #1a1a1a;
+    --primary-light: #2d2d2d;
+    --secondary-color: #0a0a0a;
     --success-color: #10b981;
     --danger-color: #ef4444;
     --warning-color: #f59e0b;
-    --dark-bg: #0f172a;
-    --dark-bg-secondary: #1e293b;
-    --dark-bg-tertiary: #334155;
-    --light-color: #f7fafc;
-    --border-color: #475569;
-    --text-color: #f1f5f9;
-    --text-light: #cbd5e1;
-    --text-muted: #94a3b8;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.5);
-    --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.6);
-    --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    --dark-bg: #000000;
+    --dark-bg-secondary: #0d0d0d;
+    --dark-bg-tertiary: #1a1a1a;
+    --light-color: #ffffff;
+    --border-color: #2a2a2a;
+    --text-color: #ffffff;
+    --text-light: #e0e0e0;
+    --text-muted: #999999;
+    --shadow: 0 4px 6px rgba(255, 255, 255, 0.05);
+    --shadow-lg: 0 20px 40px rgba(255, 255, 255, 0.1);
+    --shadow-xl: 0 25px 50px rgba(255, 255, 255, 0.15);
+    --glass-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1a1f35 100%);
+    background: linear-gradient(135deg, #000000 0%, #0d0d0d 50%, #1a1a1a 100%);
     color: var(--text-color);
     line-height: 1.6;
     min-height: 100vh;
@@ -44,7 +44,7 @@ body::before {
     right: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
     animation: float 20s ease-in-out infinite;
     pointer-events: none;
     z-index: 0;
@@ -57,7 +57,7 @@ body::after {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(118, 75, 162, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
     animation: float-reverse 25s ease-in-out infinite;
     pointer-events: none;
     z-index: 0;
@@ -71,6 +71,31 @@ body::after {
 @keyframes float-reverse {
     0%, 100% { transform: translateY(0px) translateX(0px); }
     50% { transform: translateY(30px) translateX(-30px); }
+}
+
+@keyframes float-form {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.2), var(--glass-shadow); }
+    50% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.3), var(--glass-shadow); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+@keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-right {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 /* Login Page */
@@ -108,7 +133,7 @@ body::after {
 .login-header h1 {
     font-size: 2.8rem;
     margin-bottom: 12px;
-    background: linear-gradient(135deg, #667eea 0%, #8b9ef8 50%, #764ba2 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #d0d0d0 50%, #a0a0a0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -134,15 +159,15 @@ body::after {
     align-items: center;
     gap: 12px;
     padding: 16px;
-    background: rgba(102, 126, 234, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    border: 1px solid rgba(102, 126, 234, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     transition: all 0.3s ease;
 }
 
 .feature-item:hover {
-    background: rgba(102, 126, 234, 0.15);
-    border-color: rgba(102, 126, 234, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-4px);
 }
 
@@ -206,7 +231,7 @@ body::after {
 .illustration-element {
     position: absolute;
     border-radius: 20px;
-    border: 2px solid rgba(102, 126, 234, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
 }
 
@@ -215,7 +240,7 @@ body::after {
     height: 200px;
     top: 0;
     right: 0;
-    background: rgba(102, 126, 234, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     animation: float 8s ease-in-out infinite;
 }
 
@@ -224,7 +249,7 @@ body::after {
     height: 150px;
     bottom: 20px;
     left: 20px;
-    background: rgba(118, 75, 162, 0.1);
+    background: rgba(255, 255, 255, 0.06);
     animation: float 10s ease-in-out infinite 1s;
 }
 
@@ -233,16 +258,16 @@ body::after {
     height: 100px;
     top: 50%;
     left: 50%;
-    background: rgba(16, 185, 129, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     animation: float 12s ease-in-out infinite 2s;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    background: rgba(30, 41, 59, 0.8);
+    background: rgba(20, 20, 20, 0.9);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(148, 163, 184, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 24px;
     box-shadow: var(--shadow-xl);
     overflow: hidden;
@@ -264,8 +289,8 @@ body::after {
 
 /* Header */
 .header {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(200, 200, 200, 0.05) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--text-color);
     padding: 30px 40px;
     display: flex;
@@ -283,7 +308,7 @@ body::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -306,14 +331,14 @@ body::after {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    border: 2px solid rgba(102, 126, 234, 0.5);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
 }
 
 .user-avatar:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.3);
 }
 
 .user-details {
@@ -375,7 +400,7 @@ body::after {
     font-size: 2.8rem;
     margin-bottom: 10px;
     font-weight: 800;
-    background: linear-gradient(135deg, #667eea 0%, #8b9ef8 50%, #764ba2 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 50%, #c0c0c0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -421,72 +446,102 @@ body::after {
     font-size: 2rem;
     color: var(--text-color);
     font-weight: 700;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #d0d0d0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .password-count {
-    background: rgba(102, 126, 234, 0.15);
-    color: var(--primary-light);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
-    border: 1px solid rgba(102, 126, 234, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Form Styles */
 .add-password-section {
-    background: rgba(51, 65, 85, 0.5);
-    backdrop-filter: blur(10px);
-    padding: 40px;
-    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(200, 200, 200, 0.04) 100%);
+    backdrop-filter: blur(15px);
+    padding: 50px 45px;
+    border-radius: 24px;
     margin-bottom: 50px;
-    border: 1px solid rgba(148, 163, 184, 0.2);
-    animation: fadeInUp 0.7s ease-out 0.1s both;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    animation: float-form 6s ease-in-out infinite, fadeInUp 0.7s ease-out 0.1s both;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.08), var(--glass-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.add-password-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    animation: float 15s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.add-password-section:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.15), var(--glass-shadow);
+    transform: translateY(-4px);
 }
 
 .password-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
+    position: relative;
+    z-index: 1;
 }
 
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 24px;
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .form-group label {
     font-weight: 700;
-    margin-bottom: 10px;
-    color: var(--text-color);
+    margin-bottom: 12px;
+    color: var(--text-light);
     font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: var(--text-light);
+    background: linear-gradient(135deg, var(--text-light) 0%, #999999 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
     padding: 14px 18px;
-    border: 1px solid rgba(148, 163, 184, 0.3);
-    border-radius: 12px;
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
     font-size: 1rem;
     font-family: inherit;
-    transition: all 0.3s ease;
-    background: rgba(15, 23, 42, 0.6);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.03);
     color: var(--text-color);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form-group input::placeholder,
@@ -499,9 +554,9 @@ body::after {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    background: rgba(15, 23, 42, 0.8);
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2), var(--glass-shadow);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15), 0 0 20px rgba(255, 255, 255, 0.2), var(--glass-shadow);
+    transform: translateY(-3px) scale(1.01);
 }
 
 .form-group textarea {
@@ -524,18 +579,18 @@ body::after {
 .toggle-password {
     position: absolute;
     right: 14px;
-    background: rgba(102, 126, 234, 0.2);
+    background: rgba(255, 255, 255, 0.1);
     border: none;
     cursor: pointer;
     font-size: 1.3rem;
     padding: 6px 10px;
     border-radius: 8px;
     transition: all 0.2s ease;
-    color: var(--primary-light);
+    color: var(--text-light);
 }
 
 .toggle-password:hover {
-    background: rgba(102, 126, 234, 0.4);
+    background: rgba(255, 255, 255, 0.2);
     transform: scale(1.15);
 }
 
@@ -579,20 +634,22 @@ body::after {
 
 /* Buttons */
 .btn {
-    padding: 14px 28px;
+    padding: 14px 32px;
     border: none;
-    border-radius: 12px;
+    border-radius: 14px;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     position: relative;
     overflow: hidden;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .btn::before {
@@ -617,18 +674,19 @@ body::after {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #ffffff 0%, #d0d0d0 100%);
+    color: #000000;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3), 0 0 0 0 rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
 .btn-primary:active {
-    transform: translateY(-1px);
+    transform: translateY(-1px) scale(1.02);
 }
 
 .btn-secondary {
@@ -648,8 +706,8 @@ body::after {
 }
 
 .btn-edit {
-    background: linear-gradient(135deg, #667eea 0%, #8b9ef8 100%);
-    color: white;
+    background: linear-gradient(135deg, #e0e0e0 0%, #c0c0c0 100%);
+    color: #000000;
 }
 
 .btn-delete {
@@ -680,14 +738,15 @@ body::after {
 .search-box {
     flex: 1;
     min-width: 200px;
-    padding: 14px 18px;
-    border: 1px solid rgba(148, 163, 184, 0.3);
-    border-radius: 12px;
+    padding: 14px 20px;
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
     font-size: 1rem;
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
     color: var(--text-color);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .search-box::placeholder {
@@ -697,28 +756,30 @@ body::after {
 .search-box:focus {
     outline: none;
     border-color: var(--primary-color);
-    background: rgba(15, 23, 42, 0.8);
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2), var(--glass-shadow);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15), 0 0 20px rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px) scale(1.02);
 }
 
 .filter-select {
     padding: 14px 18px;
-    border: 1px solid rgba(148, 163, 184, 0.3);
-    border-radius: 12px;
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
     font-size: 1rem;
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
     color: var(--text-color);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .filter-select:focus {
     outline: none;
     border-color: var(--primary-color);
-    background: rgba(15, 23, 42, 0.8);
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15), 0 0 20px rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px) scale(1.02);
 }
 
 /* Passwords List */
@@ -734,15 +795,16 @@ body::after {
 }
 
 .password-card {
-    background: rgba(51, 65, 85, 0.5);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(148, 163, 184, 0.2);
-    border-radius: 16px;
-    padding: 24px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(20, 20, 20, 0.7) 100%);
+    backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    padding: 28px;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     position: relative;
     overflow: hidden;
     animation: cardFadeIn 0.5s ease-out;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes cardFadeIn {
@@ -763,7 +825,7 @@ body::after {
     left: 0;
     width: 4px;
     height: 100%;
-    background: linear-gradient(180deg, #667eea, #764ba2);
+    background: linear-gradient(180deg, #ffffff, #d0d0d0);
     opacity: 0.6;
 }
 
@@ -774,27 +836,27 @@ body::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, transparent 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
     pointer-events: none;
 }
 
 .password-card:hover {
-    border-color: rgba(102, 126, 234, 0.5);
-    background: rgba(51, 65, 85, 0.7);
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2), var(--shadow-xl);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(200, 200, 200, 0.05) 100%);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(255, 255, 255, 0.15), var(--glass-shadow);
 }
 
 .card-category {
     display: inline-block;
-    background: rgba(102, 126, 234, 0.2);
-    color: var(--primary-light);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
     padding: 6px 14px;
     border-radius: 8px;
     font-size: 0.8rem;
     font-weight: 700;
     margin-bottom: 14px;
-    border: 1px solid rgba(102, 126, 234, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     animation: fadeInUp 0.6s ease-out 0.1s both;
@@ -806,7 +868,7 @@ body::after {
     color: var(--text-color);
     margin-bottom: 16px;
     word-break: break-word;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #d0d0d0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -860,7 +922,7 @@ body::after {
 }
 
 .card-notes {
-    background: rgba(102, 126, 234, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     padding: 12px 14px;
     border-radius: 8px;
     margin-bottom: 18px;
@@ -868,7 +930,7 @@ body::after {
     color: var(--text-light);
     max-height: 70px;
     overflow: auto;
-    border-left: 3px solid var(--primary-color);
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
     animation: fadeInUp 0.6s ease-out 0.25s both;
 }
 
@@ -928,14 +990,14 @@ body::after {
 }
 
 .action-edit {
-    background: linear-gradient(135deg, #667eea 0%, #8b9ef8 100%);
-    color: white;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    background: linear-gradient(135deg, #d0d0d0 0%, #b0b0b0 100%);
+    color: #000000;
+    box-shadow: 0 4px 15px rgba(208, 208, 208, 0.3);
 }
 
 .action-edit:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+    box-shadow: 0 6px 20px rgba(208, 208, 208, 0.5);
 }
 
 .action-delete {
@@ -982,8 +1044,8 @@ body::after {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
     animation: fadeIn 0.3s ease;
 }
 
@@ -994,16 +1056,16 @@ body::after {
 }
 
 .modal-content {
-    background-color: rgba(30, 41, 59, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 40px;
-    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    padding: 45px;
+    border-radius: 24px;
     width: 90%;
     max-width: 600px;
     position: relative;
-    box-shadow: var(--shadow-xl);
-    animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(148, 163, 184, 0.2);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 255, 255, 0.1);
+    animation: slideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
 }
 
 @keyframes slideIn {
@@ -1021,7 +1083,7 @@ body::after {
     margin-bottom: 30px;
     color: var(--text-color);
     font-size: 1.8rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #d0d0d0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1042,12 +1104,12 @@ body::after {
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    background: rgba(102, 126, 234, 0.1);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .close:hover {
     color: var(--text-color);
-    background: rgba(102, 126, 234, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     transform: rotate(90deg);
 }
 
@@ -1101,16 +1163,18 @@ body::after {
 
 /* Footer */
 .footer {
-    background: rgba(15, 23, 42, 0.6);
-    padding: 30px 40px;
+    padding: 40px;
     text-align: center;
     color: var(--text-light);
-    border-top: 1px solid rgba(148, 163, 184, 0.2);
+    border-top: 1px solid rgba(102, 126, 234, 0.2);
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.7s ease-out 0.4s both;
 }
 
 .footer p {
     margin: 10px 0;
     font-size: 0.95rem;
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .security-note {
