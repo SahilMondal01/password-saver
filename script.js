@@ -28,7 +28,7 @@ class PasswordManager {
             // Wait for Google API to load
             if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
                 google.accounts.id.initialize({
-                    client_id: 'REPLACE_WITH_YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com',
+                    client_id: '744080816722-vibbd6ln1u92nfr220870b8j15r09kar.apps.googleusercontent.com',
                     callback: (response) => this.handleGoogleLogin(response),
                     auto_select: false,
                     itp_support: true
