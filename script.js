@@ -401,41 +401,80 @@ class PasswordManager {
             return;
         }
 
-        container.innerHTML = list.map(p => `
-            <div class="password-card">
-                <div class="card-category">${p.category}</div>
-                <div class="card-website">${this.escapeHtml(p.website)}</div>
-                
-                <div class="card-info">
-                    <div class="card-info-row">
-                        <span class="card-label">Username:</span>
-                        <span class="card-value">${this.escapeHtml(p.username)}</span>
-                    </div>
+        // Group passwords by category
+        const groupedByCategory = {};
+        list.forEach(p => {
+            if (!groupedByCategory[p.category]) {
+                groupedByCategory[p.category] = [];
+            }
+            groupedByCategory[p.category].push(p);
+        });
+
+        // Generate HTML for each category section
+        const categoryHTML = Object.keys(groupedByCategory).map(category => {
+            const passwords = groupedByCategory[category];
+            const passwordsHTML = passwords.map(p => `
+                <div class="password-card">
+                    <div class="card-category">${p.category}</div>
+                    <div class="card-website">${this.escapeHtml(p.website)}</div>
                     
-                    <div class="card-info-row">
-                        <span class="card-label">Password:</span>
-                        <span class="card-value hidden" data-password="${this.escapeHtml(p.password)}">••••••••</span>
+                    <div class="card-info">
+                        <div class="card-info-row">
+                            <span class="card-label">Username:</span>
+                            <span class="card-value">${this.escapeHtml(p.username)}</span>
+                        </div>
+                        
+                        <div class="card-info-row">
+                            <span class="card-label">Password:</span>
+                            <span class="card-value hidden" data-password="${this.escapeHtml(p.password)}">••••••••</span>
+                        </div>
+                    </div>
+
+                    ${p.notes ? `<div class="card-notes"><strong>Notes:</strong> ${this.escapeHtml(p.notes)}</div>` : ''}
+
+                    <div class="card-actions">
+                        <button class="card-action-btn action-copy" onclick="app.copyToClipboard('${p.password.replace(/'/g, "\\'")}', 'Password')">
+                            📋 Copy Pass
+                        </button>
+                        <button class="card-action-btn action-toggle" onclick="app.toggleCardPassword(this)">
+                            👁️ Show
+                        </button>
+                        <button class="card-action-btn action-edit" onclick="app.editPassword(${p.id})">
+                            ✏️ Edit
+                        </button>
+                        <button class="card-action-btn action-delete" onclick="app.deletePassword(${p.id})">
+                            🗑️ Delete
+                        </button>
                     </div>
                 </div>
+            `).join('');
 
-                ${p.notes ? `<div class="card-notes"><strong>Notes:</strong> ${this.escapeHtml(p.notes)}</div>` : ''}
-
-                <div class="card-actions">
-                    <button class="card-action-btn action-copy" onclick="app.copyToClipboard('${p.password.replace(/'/g, "\\'")}', 'Password')">
-                        📋 Copy Pass
-                    </button>
-                    <button class="card-action-btn action-toggle" onclick="app.toggleCardPassword(this)">
-                        👁️ Show
-                    </button>
-                    <button class="card-action-btn action-edit" onclick="app.editPassword(${p.id})">
-                        ✏️ Edit
-                    </button>
-                    <button class="card-action-btn action-delete" onclick="app.deletePassword(${p.id})">
-                        🗑️ Delete
-                    </button>
+            return `
+                <div class="category-section">
+                    <div class="category-header" onclick="app.toggleCategory(this)">
+                        <span class="category-toggle">▼</span>
+                        <span class="category-title">${category}</span>
+                        <span class="category-count">${passwords.length}</span>
+                    </div>
+                    <div class="category-password-list">
+                        ${passwordsHTML}
+                    </div>
                 </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
+
+        container.innerHTML = categoryHTML;
+    }
+
+    // Toggle category visibility
+    toggleCategory(header) {
+        const toggle = header.querySelector('.category-toggle');
+        const list = header.nextElementSibling;
+        
+        if (list && list.classList.contains('category-password-list')) {
+            list.classList.toggle('collapsed');
+            toggle.classList.toggle('collapsed');
+        }
     }
 
     // Toggle card password visibility

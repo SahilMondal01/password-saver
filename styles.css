@@ -766,18 +766,24 @@ body::after {
     border: 1.5px solid rgba(255, 255, 255, 0.12);
     border-radius: 14px;
     font-size: 1rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: #1a1a1a;
     backdrop-filter: blur(8px);
-    color: var(--text-color);
+    color: #ffffff;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.filter-select option {
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 10px;
+}
+
 .filter-select:focus {
     outline: none;
     border-color: var(--primary-color);
-    background: rgba(255, 255, 255, 0.05);
+    background: #2a2a2a;
     box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15), 0 0 20px rgba(255, 255, 255, 0.2);
     transform: translateY(-3px) scale(1.02);
 }
@@ -788,10 +794,71 @@ body::after {
     animation: fadeInUp 0.7s ease-out 0.3s both;
 }
 
-.passwords-list {
+.category-section {
+    margin-bottom: 40px;
+    animation: fadeInUp 0.7s ease-out both;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.category-header:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(4px);
+}
+
+.category-toggle {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.category-toggle.collapsed {
+    transform: rotate(-90deg);
+}
+
+.category-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff 0%, #d0d0d0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    flex: 1;
+}
+
+.category-count {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--text-light);
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.category-password-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
     gap: 24px;
+    margin-top: 15px;
+    animation: fadeInUp 0.5s ease-out;
+    padding-left: 20px;
+}
+
+.category-password-list.collapsed {
+    display: none;
 }
 
 .password-card {
@@ -1228,7 +1295,7 @@ body::after {
         grid-template-columns: 1fr;
     }
 
-    .passwords-list {
+    .category-password-list {
         grid-template-columns: 1fr;
     }
 
