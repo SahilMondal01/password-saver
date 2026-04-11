@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Password Manager</title>
+    <title>Secure Password Manager - Private & Secure</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Google Sign-In -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-    <!-- Login Page (shown when not authenticated) -->
+    <!-- Login Page -->
     <div id="loginPage" class="login-page">
         <div class="login-container">
             <div class="login-content">
                 <div class="login-header">
-                    <h1>🔐 Secure Password Manager</h1>
-                    <p>Protect your digital life with a secure, private password vault</p>
+                    <h1>🔐 Password Manager</h1>
+                    <p>Keep your passwords safe and private</p>
                 </div>
 
                 <div class="login-features">
@@ -25,7 +25,7 @@
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">👤</span>
-                        <span class="feature-text">Privacy Protected</span>
+                        <span class="feature-text">Google Login</span>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">⚡</span>
@@ -33,13 +33,13 @@
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">📱</span>
-                        <span class="feature-text">Works Everywhere</span>
+                        <span class="feature-text">Fully Responsive</span>
                     </div>
                 </div>
 
                 <div class="login-button-container">
                     <p class="login-text">Sign in with Google to get started</p>
-                    <div id="googleSignInButton"></div>
+                    <div id="googleSignInButton" class="google-button-wrapper"></div>
                 </div>
 
                 <div class="login-footer">
@@ -56,14 +56,14 @@
         </div>
     </div>
 
-    <!-- Main App (shown when authenticated) -->
+    <!-- Main App -->
     <div id="appContainer" class="app-container" style="display: none;">
         <div class="container">
-            <!-- Header -->
-            <header class="header">
-                <div class="header-content">
-                    <h1>🔐 Secure Password Manager</h1>
-                    <p>Store and manage your passwords safely</p>
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                    <h1>🔐 Password Manager</h1>
+                    <p>Your secure password vault</p>
                 </div>
                 <div class="user-info">
                     <img id="userProfilePic" src="" alt="User" class="user-avatar">
@@ -72,90 +72,86 @@
                         <p class="user-email-text">Your Vault</p>
                     </div>
                     <button id="logoutBtn" class="logout-btn">Logout</button>
+        <main class="main-content">
+            <!-- Add Password Form -->
+            <section class="add-password-section">
+                <div class="section-header">
+                    <h2>Add New Password</h2>
                 </div>
-            </header>
-
-            <!-- Main Content -->
-            <main class="main-content">
-                <!-- Add Password Form -->
-                <section class="add-password-section">
-                    <div class="section-header">
-                        <h2>Add New Password</h2>
-                    </div>
-                    <form id="passwordForm" class="password-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="website">Website/App Name *</label>
-                                <input type="text" id="website" placeholder="e.g., Gmail, Facebook, Netflix" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="username">Username/Email *</label>
-                                <input type="text" id="username" placeholder="Your username or email" required>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="password">Password *</label>
-                                <div class="password-input-wrapper">
-                                    <input type="password" id="password" placeholder="Enter your password" required>
-                                    <button type="button" class="toggle-password" id="togglePassword">👁️</button>
-                                </div>
-                                <div class="password-strength" id="passwordStrength"></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="category">Category</label>
-                                <select id="category">
-                                    <option value="Social Media">Social Media</option>
-                                    <option value="Banking">Banking</option>
-                                    <option value="Email">Email</option>
-                                    <option value="Entertainment">Entertainment</option>
-                                    <option value="Work">Work</option>
-                                    <option value="Shopping">Shopping</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-                        </div>
-
+                <form id="passwordForm" class="password-form">
+                    <div class="form-row">
                         <div class="form-group">
-                            <label for="notes">Notes (Optional)</label>
-                            <textarea id="notes" placeholder="Add any additional notes..."></textarea>
+                            <label for="website">Website/App Name *</label>
+                            <input type="text" id="website" placeholder="e.g., Gmail, Facebook, Netflix" required>
                         </div>
-
-                        <button type="submit" class="btn btn-primary">Add Password</button>
-                    </form>
-                </section>
-
-                <!-- Search and Filter -->
-                <section class="search-section">
-                    <div class="search-container">
-                        <input type="text" id="searchInput" placeholder="🔍 Search by website name or username..." class="search-box">
-                        <select id="filterCategory" class="filter-select">
-                            <option value="">All Categories</option>
-                            <option value="Social Media">Social Media</option>
-                            <option value="Banking">Banking</option>
-                            <option value="Email">Email</option>
-                            <option value="Entertainment">Entertainment</option>
-                            <option value="Work">Work</option>
-                            <option value="Shopping">Shopping</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                </section>
-
-                <!-- Passwords List -->
-                <section class="passwords-section">
-                    <div class="section-header">
-                        <h2>Your Passwords</h2>
-                        <span class="password-count" id="passwordCount">0 passwords stored</span>
-                    </div>
-
-                    <div id="passwordsList" class="passwords-list">
-                        <div class="empty-state">
-                            <p>🔒 No passwords stored yet. Add your first password above!</p>
+                        <div class="form-group">
+                            <label for="username">Username/Email *</label>
+                            <input type="text" id="username" placeholder="Your username or email" required>
                         </div>
                     </div>
-                </section>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="password">Password *</label>
+                            <div class="password-input-wrapper">
+                                <input type="password" id="password" placeholder="Enter your password" required>
+                                <button type="button" class="toggle-password" id="togglePassword">👁️</button>
+                            </div>
+                            <div class="password-strength" id="passwordStrength"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category">
+                                <option value="Social Media">Social Media</option>
+                                <option value="Banking">Banking</option>
+                                <option value="Email">Email</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Work">Work</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Notes (Optional)</label>
+                        <textarea id="notes" placeholder="Add any additional notes..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add Password</button>
+                </form>
+            </section>
+
+            <!-- Search and Filter -->
+            <section class="search-section">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="🔍 Search by website name or username..." class="search-box">
+                    <select id="filterCategory" class="filter-select">
+                        <option value="">All Categories</option>
+                        <option value="Social Media">Social Media</option>
+                        <option value="Banking">Banking</option>
+                        <option value="Email">Email</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Work">Work</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Passwords List -->
+            <section class="passwords-section">
+                <div class="section-header">
+                    <h2>Your Passwords</h2>
+                    <span class="password-count" id="passwordCount">0 passwords stored</span>
+                </div>
+
+                <div id="passwordsList" class="passwords-list">
+                    <div class="empty-state">
+                        <p>🔒 No passwords stored yet. Add your first password above!</p>
+                    </div>
+                </div>
+            </section>
             </main>
 
             <!-- Footer -->
@@ -164,7 +160,6 @@
                 <p class="security-note">All passwords are stored locally in your browser - no server uploads.</p>
             </footer>
         </div>
-    </div>
 
     <!-- Edit Modal -->
     <div id="editModal" class="modal">

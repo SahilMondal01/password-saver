@@ -1,8 +1,22 @@
 # Secure Password Manager 🔐
 
-A modern, secure web-based password manager that allows you to store and manage all your passwords in one place. All data is stored locally in your browser - nothing is sent to any server.
+A modern, secure web-based password manager with **Google authentication** that allows you to store and manage all your passwords in one place. All data is stored locally in your browser - nothing is sent to any server except for user authentication.
+
+## 🔒 Key Highlight: Private & Secure per User
+
+✅ **Google Authentication** - Only you can access your passwords  
+✅ **User-Specific Storage** - Each user's passwords are isolated  
+✅ **Zero Server Storage** - Passwords stay on your device only  
+✅ **No Password Sharing** - Even with your other devices
 
 ## Features
+
+✨ **Authentication & Security:**
+- ✅ **Google Sign-In** - Secure login with your Google account
+- ✅ **User-Specific Vaults** - Each user's passwords stored separately
+- ✅ **Private Access** - Only you can access your passwords
+- ✅ **Logout Support** - Easily sign out when done
+- ✅ **User Profile Display** - See your profile picture and name
 
 ✨ **Core Features:**
 - ✅ Add new passwords with website name, username/email, and password
@@ -20,9 +34,11 @@ A modern, secure web-based password manager that allows you to store and manage 
 
 🔒 **Security Features:**
 - ✅ All data stored locally in browser (localStorage)
+- ✅ Per-user encryption via unique storage keys
 - ✅ No server uploads - your passwords never leave your device
 - ✅ Masked password display by default
 - ✅ HTML sanitization to prevent XSS attacks
+- ✅ Google authentication for identity verification
 - ✅ Never stores payment information
 
 📱 **User Experience:**
@@ -33,12 +49,31 @@ A modern, secure web-based password manager that allows you to store and manage 
 - ✅ Real-time password strength feedback
 - ✅ Quick edit modal
 - ✅ Mobile-responsive design
+- ✅ Beautiful login page with Google Sign-In
 
 ## How to Use
 
-### Getting Started
-1. Open `index.html` in your web browser
-2. The website will load with a ready-to-use password manager
+### Getting Started - Setup Google Authentication
+
+1. **Get a Google Client ID:**
+   - Follow the detailed guide in [SETUP_GOOGLE_AUTH.md](SETUP_GOOGLE_AUTH.md)
+   - This takes about 5-10 minutes
+   - Get your free Client ID from Google Cloud Console
+
+2. **Add Your Client ID:**
+   - Open `script.js`
+   - Find the line with `client_id: '1234567890-...'`
+   - Replace it with your actual Client ID
+
+3. **Open the App:**
+   - Open `index.html` in your browser
+   - You'll see a Google Sign-In button on the login page
+   - Click to sign in with your Google account
+
+4. **Your Password Vault:**
+   - After login, you'll see your private password vault
+   - Your passwords are now stored securely and privately
+   - Each user who logs in has their own separate vault
 
 ### Adding a Password
 1. Fill in the **Website/App Name** (e.g., "Gmail", "Netflix")
@@ -117,11 +152,33 @@ Works on all modern browsers:
 
 ⚠️ **Important Security Tips:**
 1. **Keep your computer secure** - Lock your computer when you're away
-2. **Use a strong master password** - Protect access to your computer
-3. **Don't share your screen** - Disable screen sharing when showing sensitive info
-4. **Backup your browser data** - Consider backing up the data periodically
+2. **Use your Google account** - Your Google account is your authentication, keep it secure
+3. **Don't share your device** - Anyone with access to your device can access your vault (when logged in)
+4. **Don't share your screen** - Disable screen sharing when showing sensitive info
 5. **Use strong passwords** - Use the password strength indicator for guidance
-6. **Never store payment info** - This is for login passwords only, NOT for payment cards or PIN codes
+6. **Logout when done** - Click the logout button when finished, especially on shared devices
+7. **Verify SSL/HTTPS** - When deployed online, always use HTTPS
+8. **Never store payment info** - This is for login passwords only, NOT for payment cards or PIN codes
+
+## How Google Authentication Works
+
+✅ **What Google Does:**
+- Verifies your identity using your Google account
+- Provides your name and profile picture
+- Issues a secure token
+
+⚠️ **What Google Does NOT Do:**
+- Access your passwords
+- Store your passwords
+- See your password list
+- Upload your data
+
+✅ **How Your Passwords Stay Private:**
+- After Google authentication, all data stays on your device
+- Each user has their own storage key
+- No server receives your passwords
+- Logout doesn't affect stored passwords (still on your device)
+- Clearing cache might delete passwords (use browser backup)
 
 ## Password Strength Indicator
 
